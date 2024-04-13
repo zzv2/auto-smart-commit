@@ -96,7 +96,9 @@ def main() -> NoReturn:
     # Split the commit into a subject and body and apply some light formatting.
     commit_elements = commit_msg.split("\n", maxsplit=1)
     commit_subject = commit_elements[0].strip()
-    commit_subject = f"{commit_subject[:1].upper()}{commit_subject[1:]}"
+    # Check if the subject starts with "fixup!"
+    if not commit_subject.lower().startswith("fixup!"):
+        commit_subject = f"{commit_subject[:1].upper()}{commit_subject[1:]}"
     commit_subject = re.sub(r"\.+$", "", commit_subject)
     commit_body = None if len(commit_elements) == 1 else commit_elements[1].strip()
     # Build the new commit message:
