@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="auto-smart-commit",
-    version="1.0.3",
+    version="1.0.4",
     py_modules=["auto_smart_commit"],
     entry_points={
         "console_scripts": [
