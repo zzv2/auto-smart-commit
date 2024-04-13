@@ -28,7 +28,7 @@ Add the following to your `.pre-commit-config.yaml` file:
 ```yaml
 repos:
   - repo: https://github.com/radix-ai/auto-smart-commit
-    rev: v1.0.3
+    rev: v1.0.4
     hooks:
       - id: auto-smart-commit
 ```

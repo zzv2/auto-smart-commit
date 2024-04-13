@@ -2,7 +2,6 @@
 
 import re
 import sys
-
 from datetime import datetime
 from math import floor
 from subprocess import check_output
@@ -22,7 +21,8 @@ def current_git_branch_name() -> str:
 
 
 def extract_jira_issue_key(message: str) -> Optional[str]:
-    project_key, issue_number = r"[A-Z]{2,}", r"[0-9]+"
+    # Updated regex to match project keys that can have numbers and are 2 to 5 characters long
+    project_key, issue_number = r"[A-Z0-9]{1,4}", r"[0-9]+"
     match = re.search(f"{project_key}-{issue_number}", message)
     if match:
         return match.group(0)
